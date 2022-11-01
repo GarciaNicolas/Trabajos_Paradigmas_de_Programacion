@@ -1,0 +1,140 @@
+@startuml
+
+class Producto {
+	nombre
+	precioBase
+	precioFinal()
+	nombreDeOferta()
+        precioConIVA()
+	
+}
+
+class Mueble extends Producto{
+	precioFinal()	
+}
+
+
+class Indumentaria extends Producto{
+	precioFinal()
+}
+
+class Ganga extends Producto{
+	nombreDeOferta()
+	precioFinal()
+}
+
+class pdePLibre {
+
+	usuarios
+	productos
+	
+	nuevoProducto(unProducto)
+	nuevoUsuario(unUsuario)
+	actualizarNiveles()
+	nombresDeOferta()
+	eliminarCuponesUsados()
+	reducirPuntosMorosos()
+	usuariosMorosos()
+}
+
+interface Nivel {
+	
+	{abstract} cantidadMaximaProductos()
+	
+	evaluarNivel(unosPuntos)
+	
+	verificarEspacioDisponible(unCarrito)
+	
+	agregarProducto(unCarrito, unProducto)
+	
+nivelPermitido(unosPuntos)
+	
+}
+
+class bronce extends Nivel{
+	
+cantidadMaximaProductos()
+
+}
+
+class plata extends Nivel{
+	cantidadMaximaProductos()
+}
+
+class oro extends Nivel{
+	
+	cantidadMaximaProductos()
+	
+	
+	agregarProducto(unCarrito, unProducto)
+	
+}
+
+
+class Usuario {	
+	nombre
+	dineroDisponible
+	puntos
+	nivel
+	carrito
+	cupones
+	
+	
+	actualizarNivel()
+	
+	agregarProductoAlCarrito(unProducto)
+	
+	cuponesNoUsados()
+	
+	eliminarCuponesUsados()
+	
+	
+	comprarProductosDelCarrito()
+	
+	puedePagar(unaCantidad)
+	
+	
+	cupones()
+	
+	esMoroso()
+	
+	restarPuntos(unaCantidad)
+	
+}
+
+class Cupon {
+	porcentajeDescuento
+	usado 
+	
+	porcentajeDescuento()
+	
+usado()
+	
+usar()
+	
+}
+
+class Carrito {
+	productos
+	
+	agregarProducto(unProducto)
+	
+	precioTotalCarrito()
+	
+	precioTotalCarritoConCupon(unDescuento)	
+}
+
+
+Mueble <|-- Producto
+Indumentaria <|-- Producto
+Ganga <|-- Producto
+Producto <-- pdePLibre
+Usuario <-- pdePLibre
+Carrito <-- Usuario
+Nivel <-- Usuario
+Cupon <-- Usuario
+Nivel <|.. oro
+Nivel <|.. bronce
+Nivel <|.. plata
+Producto <-- Usuario
+@enduml
