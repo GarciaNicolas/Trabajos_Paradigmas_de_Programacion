@@ -1,0 +1,171 @@
+@startuml
+
+interface Experiencia{
+	
+	salario(unArtista)
+	reevaluarCategoria(unArtista)
+
+}
+
+
+
+
+object amateur{
+	salario(unArtista)
+	reevaluarCategoria(unArtista)
+}
+Experiencia <|.. amateur  
+
+object establecido{
+	
+	salario(unArtista)
+	reevaluarCategoria(unArtista)
+}
+Experiencia <|.. establecido
+
+object estrella{
+	salario(unArtista)
+	reevaluarCategoria(unArtista)
+	
+}
+Experiencia <|.. estrella 
+
+
+
+
+
+class Artista {
+	ahorros
+	categoria 	
+	
+	
+	recategorizar()
+	nivelFama()
+	salarioArtista()
+	tieneMejorSalarioQue(unSalario)
+	actuar()
+	cantidadPeliculasActuadas()
+	peliculasEnLasQueActuo()
+	actuo(unaPelicula)
+}
+
+Artista <-- Experiencia
+
+
+class Pelicula {
+	nombre
+	elenco 
+		
+	presupuesto()
+	ganancias()
+        cuantoRecaudo()
+	plusRecaudacion()
+	rodar()
+	unArtistaActuo(unArtista)
+	esEconomica()
+}
+
+Pelicula <-- Artista
+
+
+
+class PeliculaDeAccion extends Pelicula{
+	presupuesto()
+	plusRecaudacion()
+	
+}
+
+class PeliculaDeComedia extends Pelicula{
+}
+
+class PeliculaDeDrama extends Pelicula{
+	plusRecaudacion()
+}
+
+class PeliculaDeTerror extends Pelicula{
+	cucho
+	plusRecaudacion()
+}
+
+object iMPdeP {
+	peliculas
+	artistas
+	--
+	peliculas()
+	nuevaPelicula(unaPelicula)
+	nuevoArtista(unArtista)
+	artistaMejorPago()
+	tieneElMejorSalario(unArtista)
+	gananciasTotalesDePeliculasEconomicas()
+	todasLasPeliculasEconomicas()
+	recategorizarTodosLosArtistas()
+	peliculasEnLasQueActuo(unArtista)
+}
+
+iMPdeP <-- Artista
+iMPdeP <-- Pelicula
+
+@enduml
+	nivelFama()
+	salarioArtista()
+	tieneMejorSalarioQue(unSalario)
+	actuar()
+	cantidadPeliculasActuadas()
+	peliculasEnLasQueActuo()
+	actuo(unaPelicula)
+}
+
+Artista <-- Experiencia
+
+
+class Pelicula {
+	nombre
+	elenco 
+		
+	presupuesto()
+	ganancias()
+        cuantoRecaudo()
+	plusRecaudacion()
+	rodar()
+	unArtistaActuo(unArtista)
+	esEconomica()
+}
+
+Pelicula <-- Artista
+
+
+
+class PeliculaDeAccion extends Pelicula{
+	presupuesto()
+	plusRecaudacion()
+	
+}
+
+class PeliculaDeDrama extends Pelicula{
+	plusRecaudacion()
+}
+
+class PeliculaDeTerror extends Pelicula{
+	cucho
+	plusRecaudacion()
+}
+
+object iMPdeP {
+	peliculas
+	artistas
+	--
+	peliculas()
+	nuevaPelicula(unaPelicula)
+	nuevoArtista(unArtista)
+	artistaMejorPago()
+	tieneElMejorSalario(unArtista)
+	gananciasTotalesDePeliculasEconomicas()
+	todasLasPeliculasEconomicas()
+	recategorizarTodosLosArtistas()
+	peliculasEnLasQueActuo(unArtista)
+}
+
+iMPdeP <-- Artista
+iMPdeP <-- Pelicula
+
+@enduml
